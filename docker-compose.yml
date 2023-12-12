@@ -7,3 +7,15 @@ services:
     ports:
       - 80:80
       - 443:443
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=php_docker
+      - MYSQL_USER=php_docker
+      - MYSQL_PASSWORD=password
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3306
